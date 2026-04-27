@@ -37,7 +37,7 @@ const deviceTypes = [
   { id: 'tablet', title: 'Tablet', icon: Tablet },
 ]
 
-const brands = ['Samsung', 'iPhone', 'Huawei', 'Xiaomi', 'Motorola', 'LG']
+const brands = ['Samsung', 'iPhone', 'Huawei', 'Xiaomi', 'Motorola', 'LG', 'Otro']
 
 function Card({ title, description, icon: Icon, color }) {
   return (
@@ -72,12 +72,17 @@ function SelectableCard({ title, subtitle, selected, onClick }) {
 function App() {
   const [selectedDevice, setSelectedDevice] = useState('celular')
   const [selectedBrand, setSelectedBrand] = useState('Samsung')
-  const [selectedModel, setSelectedModel] = useState('Galaxy S23')
+  const [customBrand, setCustomBrand] = useState('')
+  const [selectedModel, setSelectedModel] = useState('')
   const [issueDescription, setIssueDescription] = useState('')
   const [lightboxImage, setLightboxImage] = useState(null)
 
+  const displayDevice = selectedDevice === 'tablet' ? 'una tablet' : 'un celular'
+  const displayBrand = selectedBrand === 'Otro' ? (customBrand || 'Otro') : selectedBrand
+  const modelText = selectedModel || 'Describe el modelo aquí.'
+
   const whatsappUrl = `https://wa.me/5218127564823?text=${encodeURIComponent(
-    `Hola, quisiera cotizar la reparación de un ${selectedDevice} ${selectedBrand} ${selectedModel}. Problema: ${issueDescription || 'Describe el problema aquí.'}`
+    `Hola, quisiera cotizar la reparación de ${displayDevice} ${displayBrand}, modelo ${modelText}. Problema: ${issueDescription || 'Describe el problema aquí.'}`
   )}`
 
   return (
@@ -446,10 +451,24 @@ function App() {
                           title={brandItem}
                           subtitle={selectedBrand === brandItem ? 'Seleccionado' : 'Toca para elegir'}
                           selected={selectedBrand === brandItem}
-                          onClick={() => setSelectedBrand(brandItem)}
+                          onClick={() => {
+                            setSelectedBrand(brandItem)
+                            if (brandItem !== 'Otro') setCustomBrand('')
+                          }}
                         />
                       ))}
                     </div>
+                    {selectedBrand === 'Otro' && (
+                      <div className="mt-6 rounded-[28px] border border-slate-200 bg-slate-50 p-5">
+                        <label className="mb-3 block text-sm font-semibold text-slate-900">Marca</label>
+                        <input
+                          value={customBrand}
+                          onChange={(event) => setCustomBrand(event.target.value)}
+                          className="w-full rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-[#FCD116] focus:ring-2 focus:ring-[#FCD116]/30"
+                          placeholder="Ej. TECNO"
+                        />
+                      </div>
+                    )}
                   </div>
 
                   <div>
@@ -458,7 +477,7 @@ function App() {
                       <p className="text-sm text-slate-500">Modelo</p>
                     </div>
                     <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-5 shadow-sm">
-                      <label className="mb-3 block text-sm font-semibold text-slate-900">Modelo preferido</label>
+                      <label className="mb-3 block text-sm font-semibold text-slate-900">Modelo de tu dispositivo</label>
                       <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                         <input
                           value={selectedModel}
