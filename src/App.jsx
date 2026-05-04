@@ -424,7 +424,7 @@ function App() {
                 <img src="/images/gallery/iphone11-2.jpg" alt="iPhone 11: reparación de pads y líneas I2C" className="w-full h-full object-cover" />
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">iPhone 11: segunda unidad</h3>
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">iPhone 11:</h3>
                 <p className="text-sm text-slate-600">Segunda unidad con diagnóstico complejo. Daño en pads A y líneas I2C. Restauración de comunicación y función estable.</p>
               </div>
             </div>
