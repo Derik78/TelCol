@@ -380,6 +380,54 @@ function App() {
                 <p className="text-sm text-slate-600">Protección restaurada tras daño por cargador genérico. Evaluación y reparación eléctrica completa.</p>
               </div>
             </div>
+            <div
+              className="group cursor-pointer rounded-[28px] border border-slate-200 bg-white/90 overflow-hidden shadow-soft hover:shadow-xl transition"
+              onClick={() => setLightboxImage({ src: '/images/gallery/iphone17.jpg', alt: 'iPhone 17: falla de carga con IC dañada' })}
+            >
+              <div className="aspect-[4/3] min-h-[260px] bg-slate-100 relative">
+                <img src="/images/gallery/iphone17.jpg" alt="iPhone 17: falla de carga con IC dañada" className="w-full h-full object-cover" />
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">iPhone 17: falla de carga</h3>
+                <p className="text-sm text-slate-600">Con fallas de carga. IC de carga dañado. El equipo solo se va cargando al encendido parcial.</p>
+              </div>
+            </div>
+            <div
+              className="group cursor-pointer rounded-[28px] border border-slate-200 bg-white/90 overflow-hidden shadow-soft hover:shadow-xl transition"
+              onClick={() => setLightboxImage({ src: '/images/gallery/ipad.jpg', alt: 'iPad 9: error -2 y soldadura fría en CPU' })}
+            >
+              <div className="aspect-[4/3] min-h-[260px] bg-slate-100 relative">
+                <img src="/images/gallery/ipad.jpg" alt="iPad 9: error -2 y soldadura fría en CPU" className="w-full h-full object-cover" />
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">iPad 9: error -2</h3>
+                <p className="text-sm text-slate-600">Error -2 por soldadura fría en CPU. Revisión y reparación con limpieza y refuerzo de contactos.</p>
+              </div>
+            </div>
+            <div
+              className="group cursor-pointer rounded-[28px] border border-slate-200 bg-white/90 overflow-hidden shadow-soft hover:shadow-xl transition"
+              onClick={() => setLightboxImage({ src: '/images/gallery/iphone11.jpg', alt: 'iPhone 11: reinicios y daño en pads de la cara A' })}
+            >
+              <div className="aspect-[4/3] min-h-[260px] bg-slate-100 relative">
+                <img src="/images/gallery/iphone11.jpg" alt="iPhone 11: reinicios y daño en pads de la cara A" className="w-full h-full object-cover" />
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">iPhone 11: reinicios frecuentes</h3>
+                <p className="text-sm text-slate-600">Reinicios cada 2-3 min. Pads de la cara A reventados y varias líneas I2C afectadas. Se recuperan pads y el equipo vuelve a funcionar.</p>
+              </div>
+            </div>
+            <div
+              className="group cursor-pointer rounded-[28px] border border-slate-200 bg-white/90 overflow-hidden shadow-soft hover:shadow-xl transition"
+              onClick={() => setLightboxImage({ src: '/images/gallery/iphone11-2.jpg', alt: 'iPhone 11 segunda unidad: reparación de pads y líneas I2C' })}
+            >
+              <div className="aspect-[4/3] min-h-[260px] bg-slate-100 relative">
+                <img src="/images/gallery/iphone11-2.jpg" alt="iPhone 11: reparación de pads y líneas I2C" className="w-full h-full object-cover" />
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">iPhone 11: segunda unidad</h3>
+                <p className="text-sm text-slate-600">Segunda unidad con diagnóstico complejo. Daño en pads A y líneas I2C. Restauración de comunicación y función estable.</p>
+              </div>
+            </div>
           </div>
         </section>
         {lightboxImage && (
